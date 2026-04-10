@@ -5,6 +5,7 @@ import { PlusCircle, Ticket as TicketIcon } from 'lucide-react';
 import TicketDashboard from './features/tickets/TicketDashboard';
 import TicketList from './features/tickets/TicketList';
 import TicketForm from './features/tickets/TicketForm';
+import AgentManager from './features/agents/AgentManager';
 
 export default function App() {
   const { t, i18n } = useTranslation();
@@ -15,6 +16,7 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState('');
   
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isAgentManagerOpen, setIsAgentManagerOpen] = useState(false);
   const [editingTicket, setEditingTicket] = useState<any>(null);
   const [toast, setToast] = useState<{ message: string, type: 'error' | 'success' } | null>(null);
 
@@ -84,6 +86,9 @@ export default function App() {
               EN
             </button>
           </div>
+          <button className="btn" style={{ background: 'transparent', border: '1px solid var(--border-color)', color: 'var(--text-primary)' }} onClick={() => setIsAgentManagerOpen(true)}>
+            {t('Gestionar Agentes')}
+          </button>
           <button className="btn" onClick={() => openForm()}>
             <PlusCircle size={20} /> {t('Nuevo Ticket')}
           </button>
@@ -131,6 +136,15 @@ export default function App() {
           agents={agents} 
           onClose={() => closeForm()} 
           onSave={() => closeForm(true)}
+          onError={(msg: string) => showToast(msg, 'error')}
+        />
+      )}
+
+      {isAgentManagerOpen && (
+        <AgentManager 
+          agents={agents} 
+          onClose={() => setIsAgentManagerOpen(false)} 
+          onRefresh={fetchData}
           onError={(msg: string) => showToast(msg, 'error')}
         />
       )}

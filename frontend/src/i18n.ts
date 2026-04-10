@@ -49,7 +49,18 @@ const resources = {
       "Ticket no encontrado": "Ticket not found",
       "Error de validación: Faltan campos requeridos": "Validation Error: Missing required fields",
       "No se puede modificar un ticket resuelto": "Cannot modify a resolved ticket",
-      "No se puede eliminar un ticket que no esté ABIERTO": "Cannot delete a ticket that is not OPEN"
+      "No se puede eliminar un ticket que no esté ABIERTO": "Cannot delete a ticket that is not OPEN",
+      "Gestionar Agentes": "Manage Agents",
+      "Nombre del Agente": "Agent Name",
+      "Email del Agente": "Agent Email",
+      "Agregar Agente": "Add Agent",
+      "Agentes de Soporte": "Support Agents",
+      "No hay agentes registrados": "No agents registered",
+      "Agente eliminado con éxito": "Agent deleted successfully",
+      "Agente creado con éxito": "Agent created successfully",
+      "No se puede eliminar un agente que tiene tickets asignados": "Cannot delete an agent who has assigned tickets",
+      "El correo electrónico ya está registrado": "The email is already registered",
+      "Error de validación: Nombre y email son requeridos": "Validation Error: Name and email are required"
     }
   },
   es: {

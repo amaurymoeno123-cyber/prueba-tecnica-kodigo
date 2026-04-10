@@ -9,6 +9,17 @@ export class AgentRepository {
 
   async findById(id: string) {
     return await prisma.agent.findUnique({
+      where: { id },
+      include: { tickets: true }
+    });
+  }
+
+  async create(data: { name: string, email: string }) {
+    return await prisma.agent.create({ data });
+  }
+
+  async delete(id: string) {
+    return await prisma.agent.delete({
       where: { id }
     });
   }

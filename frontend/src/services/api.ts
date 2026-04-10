@@ -29,6 +29,8 @@ export const ticketService = {
 
 export const agentService = {
   getAllAgents: () => api.get('/agents'),
+  createAgent: (data: { name: string, email: string }) => api.post('/agents', data),
+  deleteAgent: (id: string) => api.delete(`/agents/${id}`),
 };
 
 export default api;
